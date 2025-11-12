@@ -43,6 +43,7 @@ function vueSidebarShow() {
 	
 		loadSidebar(_hrefs);
 	}
+	gitHubIoImg();
 
 }
 
@@ -51,6 +52,18 @@ function loadSidebar(hrefTxt) {
 	console.log(sidebars)
 	sidebars[0].insertBefore(divNode , sidebars[0].childNodes[0]);
 	var e = document.getElementsByClassName("hide");if(e[1])e[1].remove();
+}
+
+function gitHubIoImg() {
+	var imgs = document.querySelectorAll('p img');
+	let origin = location.origin;
+	for (var i=0; i< imgs.length; i++) {
+		let img = imgs[i];
+		console.log(img.src);
+		var b = img.src.substr(img.src.lastIndexOf('/assets'), img.src.length);
+		let newsrc = origin + b;
+		console.log(newsrc);
+	}
 }
 
 
